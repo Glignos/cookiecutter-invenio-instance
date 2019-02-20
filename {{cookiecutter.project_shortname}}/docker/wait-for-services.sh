@@ -28,7 +28,7 @@ _es_check(){ curl --output /dev/null --silent --head --fail http://localhost:920
 check_ready "Elasticsearch" _es_check
 
 _kibana_check(){ curl --output /dev/null --silent --head --fail http://localhost:5601 &>/dev/null; }
-check_ready "Kibana" _es_check
+check_ready "Kibana" _kibana_check
 
 _redis_check(){ docker-compose exec cache bash -c 'redis-cli ping' | grep 'PONG' &> /dev/null; }
 check_ready "Redis" _redis_check
