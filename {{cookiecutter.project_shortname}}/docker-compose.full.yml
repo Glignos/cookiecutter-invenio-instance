@@ -25,6 +25,9 @@ services:
     links:
       - web-ui
       - web-api
+    depends_on:
+      - web-ui
+      - web-api
   # UI Application
   web-ui:
     extends:
@@ -41,7 +44,6 @@ services:
       - es
       - mq
       - db
-      - frontend
   # API Rest Application
   web-api:
     extends:
@@ -58,7 +60,6 @@ services:
       - es
       - mq
       - db
-      - frontend
   # Worker
   worker:
     extends:
