@@ -44,6 +44,8 @@ services:
       - es
       - mq
       - db
+    depends_on:
+      - web-api
   # API Rest Application
   web-api:
     extends:
